@@ -5,9 +5,23 @@ const url = "https://hp-api.herokuapp.com/api/characters";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-    return <AppContext.Provider value="hello">{children}</AppContext.Provider>;
+    const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("a");
+    const [characters, setCharacters] = useState([]);
+
+    return (
+        <AppContext.Provider
+            value={{
+                loading,
+                characters,
+                setSearchTerm,
+            }}
+        >
+            {children}
+        </AppContext.Provider>
+    );
 };
-// make sure use
+
 export const useGlobalContext = () => {
     return useContext(AppContext);
 };

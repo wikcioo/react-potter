@@ -5,6 +5,7 @@ import { useGlobalContext } from "../context";
 
 const CharacterList = () => {
     const { characters, loading } = useGlobalContext();
+    console.log(characters);
 
     if (loading) {
         return <Loading />;
@@ -19,9 +20,14 @@ const CharacterList = () => {
     }
 
     return (
-        <div>
-            <h2>cocktail list component</h2>
-        </div>
+        <section className="section">
+            <h2 className="section-title">characters</h2>
+            <div className="characters-center">
+                {characters.map((item) => {
+                    return <Character key={item.name} {...item} />;
+                })}
+            </div>
+        </section>
     );
 };
 

@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-center">
                 <Link to="/">
-                    <img src={logo} alt="logo" className="logo" />
+                    <h1 className="logo">Harry Potter Wiki</h1>
                 </Link>
                 <ul className="nav-links">
                     <li>
